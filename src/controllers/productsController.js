@@ -21,13 +21,17 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		// Do the magic
-		
+		res.render('products', {products})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
-		
+		let id = req.params.id;
+        let product = products.find(item =>{
+                return item.id == id
+        })
+        res.render('detail',{ product })
 	},
 
 	// Create - Form to create
@@ -56,7 +60,7 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		
+		res.send("edit")
 	},
 	// Update - Method to update
 	update: (req, res) => {
@@ -66,7 +70,10 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
+		let id = req.params.id;
+		let deleted = products.find(product => product.id === id)
 		
+		res.redirect('/')
 	}
 };
 
