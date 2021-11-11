@@ -60,19 +60,38 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		res.send("edit")
+		let id = req.params.id;
+		let product = products.find(item =>{
+			return item.id == id
+		})
+		res.render('product-edit-form',{ product})
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
+			
+		let id = req.params.id
+		let product = products.find(item =>{
+			return item.id == id
+		})
+		product.name = req.body.name;
+		product.price = req.body.price;
+		product.discount = req.body.discount;
+		product.category = req.body.category;
+		product.description = req.body.description;
+		
+		let jsonProducts = JSON.stringify(products,null,4);
+		fs.writeFileSync(productsFilePath,jsonProducts);
+		res.redirect('/')
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
 		let id = req.params.id;
-		let deleted = products.find(product => product.id === id)
-		
+		products.splice(id-1,id)
+		let jsonProducts = JSON.stringify(products,null,4);
+		fs.writeFileSync(productsFilePath,jsonProducts);
 		res.redirect('/')
 	}
 };
