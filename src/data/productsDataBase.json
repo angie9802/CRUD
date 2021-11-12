@@ -145,26 +145,11 @@
     },
     {
         "id": 17,
-        "name": "Samsung Galaxy S10",
-        "price": "72999",
-        "discount": "25",
+        "name": "xbx",
+        "price": "xcvxcxcvx",
+        "discount": "xcvxc",
         "category": "",
-        "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios."
-    },
-    {
-        "id": 18,
-        "name": "Cafetera Moulinex Dolce Gusto Edited",
-        "price": "100",
-        "discount": "80",
-        "category": "",
-        "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price."
-    },
-    {
-        "id": 19,
-        "name": "Cafetera Moulinex Dolce Gusto Edited",
-        "price": "200",
-        "discount": "50",
-        "category": "",
-        "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price."
+        "description": "xcvx",
+        "image": "image-1636680126252.PNG"
     }
 ]

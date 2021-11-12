@@ -1,13 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-
+const multer = require('multer')
 const productsFilePath = path.resolve(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const pathViews = (viewName)=>{
-    return '../views/'+viewName+'.ejs'
-}
+
 const lastId= ()=>{
 	let last = 0;
 	products.forEach(product=>{
@@ -43,17 +41,18 @@ const controller = {
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
-		
+		console.log(req.body)
 		let product={
 			id: lastId(),
 			...req.body,
-			image: "default-image.png"
+			image: req.file.filename
 		}
 		
 		products.push(product)
 
 		let jsonProducts = JSON.stringify(products,null,4);
 		fs.writeFileSync(productsFilePath,jsonProducts);
+		
 		res.redirect('/')
 	},
 
@@ -82,6 +81,7 @@ const controller = {
 		
 		let jsonProducts = JSON.stringify(products,null,4);
 		fs.writeFileSync(productsFilePath,jsonProducts);
+		
 		res.redirect('/')
 	},
 
@@ -95,5 +95,7 @@ const controller = {
 		res.redirect('/')
 	}
 };
+
+
 
 module.exports = controller;
